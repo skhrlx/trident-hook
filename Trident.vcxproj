@@ -147,14 +147,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\dllmain.cpp" />
-    <ClCompile Include="utils\entity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data.hpp" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\offsets.hpp" />
-    <ClInclude Include="utils\entity.hpp" />
-    <ClInclude Include="utils\usercmd.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
