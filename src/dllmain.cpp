@@ -6,16 +6,15 @@
 
 #include "offsets.hpp"
 #include "data.hpp"
+#include "../ext/minhook/MinHook.h"
 
 using namespace hazedumper::netvars;
 using namespace hazedumper::signatures;
 
-// hack fn
 void BunnyHop(const HMODULE instance) noexcept
 {
 	const auto client = reinterpret_cast<uintptr_t>(GetModuleHandle("client.dll"));
 
-	// hack loop
 	while (!GetAsyncKeyState(VK_INSERT))
 	{
 		std::this_thread::sleep_for(std::chrono::milliseconds(1));
