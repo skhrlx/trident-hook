@@ -3,10 +3,12 @@
 #include <Windows.h>
 #include <cstdint>
 #include <thread>
+#include <iostream>
 
-#include "offsets.hpp"
-#include "data.hpp"
+#include "../sdk/offsets.hpp"
+#include "../sdk/data.hpp"
 #include "../ext/minhook/MinHook.h"
+#include "../sdk/entity.hpp"
 
 using namespace hazedumper::netvars;
 using namespace hazedumper::signatures;
@@ -146,10 +148,14 @@ void __forceinline PolyMorphic() {
 	}
 }
 
-void MainLoop(const HMODULE instance) noexcept
+/*void MainLoop(const HMODULE instance) noexcept
 {
 	PolyMorphic();
 	const auto client = reinterpret_cast<uintptr_t>(GetModuleHandle("client.dll"));
+	//PolyMorphic();
+	//const auto localPlayer = *reinterpret_cast<uintptr_t*>(client + dwLocalPlayer);
+	//PolyMorphic();
+	//Entity LocalPlayerEnt = Entity(localPlayer);
 	PolyMorphic();
 	while (!GetAsyncKeyState(VK_INSERT))
 	{
@@ -172,32 +178,11 @@ void MainLoop(const HMODULE instance) noexcept
 		if (NoFlash)
 		{
 			PolyMorphic();
-			const auto localPlayer = *reinterpret_cast<uintptr_t*>(client + dwLocalPlayer);
-			*reinterpret_cast<float*>(localPlayer + m_flFlashMaxAlpha) = 0.0f;
+			uint32_t localPlayer = *reinterpret_cast<uint32_t*>(client + dwLocalPlayer);
+			Entity LocalPlayerEnt = Entity(localPlayer);
+			LocalPlayerEnt.SetFlashAlpha(0.0f);
 			PolyMorphic();
 		}
-		/*if (RadarHack)
-		{
-			for (size_t i = 1; i < 20; i++)
-			{
-				DWORD targetPlayerAddr = *(DWORD*)*reinterpret_cast<DWORD*>(client + dwEntityList + (DWORD)((i - 1) * (int)0x10));
-				BOOL isDoormant = *(BOOL*)(targetPlayerAddr + m_bSpotted);
-				if (!isDoormant)
-				{
-					BOOL targetPlayerIsSpotted = *(BOOL*)(targetPlayerAddr + m_bSpotted);
-					if (targetPlayerIsSpotted == FALSE)
-					{
-						do
-						{
-							*reinterpret_cast<BOOL*>(targetPlayerAddr + targetPlayerIsSpotted) = 1;
-						} while (!*(BOOL*)(targetPlayerAddr + m_bSpotted));
-					}
-				}
-				
-
-
-			}
-		}*/
 		PolyMorphic();
 	}
 	PolyMorphic();
@@ -208,6 +193,11 @@ void MainLoop(const HMODULE instance) noexcept
 		PolyMorphic();
 	}
 	PolyMorphic();
+}*/
+
+void MainLoop(const HMODULE instance) noexcept
+{
+
 }
 
 int __stdcall DllMain(
