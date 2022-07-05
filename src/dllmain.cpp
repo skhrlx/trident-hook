@@ -1,3 +1,5 @@
+#pragma warning disable C26819
+
 #define WIN32_LEAN_AND_MEAN
 
 #include <Windows.h>
@@ -9,6 +11,9 @@
 #include "../sdk/data.hpp"
 #include "../ext/minhook/MinHook.h"
 #include "../sdk/entity.hpp"
+
+#include "gui.hpp"
+#include "hooks.hpp"
 
 using namespace hazedumper::netvars;
 using namespace hazedumper::signatures;
@@ -148,7 +153,7 @@ void __forceinline PolyMorphic() {
 	}
 }
 
-/*void MainLoop(const HMODULE instance) noexcept
+void MainLoop(const HMODULE instance) noexcept
 {
 	PolyMorphic();
 	const auto client = reinterpret_cast<uintptr_t>(GetModuleHandle("client.dll"));
@@ -193,12 +198,37 @@ void __forceinline PolyMorphic() {
 		PolyMorphic();
 	}
 	PolyMorphic();
-}*/
-
-void MainLoop(const HMODULE instance) noexcept
-{
-
 }
+
+/*void MainLoop(const HMODULE instance) noexcept
+{
+	try
+	{
+		gui::Setup();
+		hooks::Setup();
+	}
+	catch (const std::exception& error)
+	{
+		MessageBeep(MB_ICONERROR);
+		MessageBox(
+			0,
+			error.what(),
+			"hack error",
+				MB_OK | MB_ICONEXCLAMATION
+		);
+
+		goto UNLOAD;
+	}
+
+	while (!GetAsyncKeyState(VK_END))
+		std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+UNLOAD:
+	gui::Destroy();
+	hooks::Destroy();
+
+	FreeLibraryAndExitThread(instance, 0);
+}*/
 
 int __stdcall DllMain(
 	const HMODULE instance,

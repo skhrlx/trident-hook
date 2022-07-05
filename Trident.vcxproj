@@ -161,6 +161,7 @@
     <ClCompile Include="sdk\entity.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
     <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\hooks.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\imgui\imconfig.h" />
@@ -186,6 +187,7 @@
     <ClInclude Include="src\gui.hpp" />
     <ClInclude Include="sdk\offsets.hpp" />
     <ClInclude Include="src\gui.h" />
+    <ClInclude Include="src\hooks.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

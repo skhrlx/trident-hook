@@ -52,7 +52,7 @@ bool gui::SetupWindow(const char* windowName) noexcept
 {
 	window = CreateWindow(
 		windowClass.lpszClassName,
-		windowname,
+		windowName,
 		WS_OVERLAPPEDWINDOW,
 		0,
 		0,
@@ -146,7 +146,7 @@ void gui::Setup()
 	if (!SetupWindowClass("hackClass001"))
 		throw std::runtime_error("failed to setup window class.");
 
-	if (!SetupWindow("Hack Window")) //FIX THIS
+	if (!SetupWindow("Hack Window"))
 		throw std::runtime_error("failed to create window.");
 
 	if (!SetupDirectX())
