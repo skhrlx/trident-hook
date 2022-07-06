@@ -1,4 +1,4 @@
-#pragma warning disable C26819
+#pragma warning(disable : 26819, 4244)
 
 #define WIN32_LEAN_AND_MEAN
 
@@ -12,8 +12,8 @@
 #include "../ext/minhook/MinHook.h"
 #include "../sdk/entity.hpp"
 
-#include "gui.hpp"
-#include "hooks.hpp"
+//#include "gui.hpp"
+//#include "hooks.hpp"
 
 using namespace hazedumper::netvars;
 using namespace hazedumper::signatures;
@@ -157,10 +157,6 @@ void MainLoop(const HMODULE instance) noexcept
 {
 	PolyMorphic();
 	const auto client = reinterpret_cast<uintptr_t>(GetModuleHandle("client.dll"));
-	//PolyMorphic();
-	//const auto localPlayer = *reinterpret_cast<uintptr_t*>(client + dwLocalPlayer);
-	//PolyMorphic();
-	//Entity LocalPlayerEnt = Entity(localPlayer);
 	PolyMorphic();
 	while (!GetAsyncKeyState(VK_INSERT))
 	{
