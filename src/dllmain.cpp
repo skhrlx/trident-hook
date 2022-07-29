@@ -10,10 +10,7 @@
 #include "../sdk/offsets.hpp"
 #include "../sdk/data.hpp"
 #include "../ext/minhook/MinHook.h"
-#include "../sdk/entity.hpp"
-
-//#include "gui.hpp"
-//#include "hooks.hpp"
+#include "../sdk/modules.hpp"
 
 using namespace hazedumper::netvars;
 using namespace hazedumper::signatures;
@@ -155,76 +152,32 @@ void __forceinline PolyMorphic() {
 
 void MainLoop(const HMODULE instance) noexcept
 {
-	PolyMorphic();
-	const auto client = reinterpret_cast<uintptr_t>(GetModuleHandle("client.dll"));
-	PolyMorphic();
+	
+	std::this_thread::sleep_for(std::chrono::milliseconds(1));
+
 	while (!GetAsyncKeyState(VK_INSERT))
 	{
-		PolyMorphic();
-		std::this_thread::sleep_for(std::chrono::milliseconds(1));
-		PolyMorphic();
+		
 		if (Bunnhyhop)
-			PolyMorphic();
+		{
 			if (!GetAsyncKeyState(VK_SPACE))
 				continue;
-			PolyMorphic();
-			const auto localPlayer = *reinterpret_cast<uintptr_t*>(client + dwLocalPlayer);
-			PolyMorphic();
+
+			const auto localPlayer = *reinterpret_cast<uintptr_t*>(modules::client + dwLocalPlayer);
+
 			const auto flags = *reinterpret_cast<int32_t*>(localPlayer + m_fFlags);
-			PolyMorphic();
+
 			(flags & (1 << 0)) ?
-				*reinterpret_cast<uintptr_t*>(client + dwForceJump) = 6 :
-				*reinterpret_cast<uintptr_t*>(client + dwForceJump) = 4;
-				PolyMorphic();
-		if (NoFlash)
-		{
-			PolyMorphic();
-			uint32_t localPlayer = *reinterpret_cast<uint32_t*>(client + dwLocalPlayer);
-			Entity LocalPlayerEnt = Entity(localPlayer);
-			LocalPlayerEnt.SetFlashAlpha(0.0f);
-			PolyMorphic();
+				*reinterpret_cast<uintptr_t*>(modules::client + dwForceJump) = 6 :
+				*reinterpret_cast<uintptr_t*>(modules::client + dwForceJump) = 4;
+
 		}
-		PolyMorphic();
 	}
-	PolyMorphic();
 	while (!GetAsyncKeyState(VK_DELETE))
 	{
-		PolyMorphic();
 		FreeLibraryAndExitThread(instance, 0);
-		PolyMorphic();
 	}
-	PolyMorphic();
 }
-
-/*void MainLoop(const HMODULE instance) noexcept
-{
-	try
-	{
-		gui::Setup();
-		hooks::Setup();
-	}
-	catch (const std::exception& error)
-	{
-		MessageBeep(MB_ICONERROR);
-		MessageBox(
-			0,
-			error.what(),
-			"hack error",
-				MB_OK | MB_ICONEXCLAMATION
-		);
-
-		goto UNLOAD;
-	}
-
-	while (!GetAsyncKeyState(VK_END))
-		std::this_thread::sleep_for(std::chrono::milliseconds(200));
-
-UNLOAD:
-	gui::Destroy();
-	hooks::Destroy();
-
-	FreeLibraryAndExitThread(instance, 0);
-}*/
 
 int __stdcall DllMain(
 	const HMODULE instance,
