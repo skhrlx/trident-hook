@@ -15,6 +15,7 @@
 #include "../hacks/bhop.hpp"
 #include "../hacks/noflash.hpp"
 #include "../hacks/fovchanger.hpp"
+#include "../hacks/hitmarker.hpp"
 
 using namespace hazedumper::netvars;
 using namespace hazedumper::signatures;
@@ -175,6 +176,11 @@ void MainLoop(const HMODULE instance) noexcept
 		if (FovChanger)
 		{
 			fovchanger::Run();
+		}
+
+		if (HitMark)
+		{
+			hitmarker::Run();
 		}
 
 	}

@@ -54,6 +54,9 @@
     <ClCompile Include="hacks\fovchanger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="hacks\hitmarker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sdk\offsets.hpp">
@@ -105,6 +108,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="hacks\fovchanger.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hacks\hitmarker.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

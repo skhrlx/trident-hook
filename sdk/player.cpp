@@ -27,3 +27,10 @@ uintptr_t Player::GetFlags()
     return flags;
 }
 
+
+uintptr_t Player::GetHitsOnServer()
+{
+    uintptr_t hits = ReadValue<uintptr_t>(m_totalHitsOnServer);
+    return hits;
+}
+

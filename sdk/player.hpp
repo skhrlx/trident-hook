@@ -16,6 +16,8 @@ public:
 
     uintptr_t GetFlags();
 
+    uintptr_t GetHitsOnServer();
+
     void SetFOV(int fov);
 
     void SetFlashOpacity(float opacity);

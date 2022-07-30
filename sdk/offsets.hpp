@@ -157,5 +157,6 @@ namespace hazedumper {
 		constexpr ::std::ptrdiff_t model_ambient_min = 0x590054;
 		constexpr ::std::ptrdiff_t set_abs_angles = 0x1E59F0;
 		constexpr ::std::ptrdiff_t set_abs_origin = 0x1E5830;
+		constexpr ::std::ptrdiff_t m_totalHitsOnServer = 0x103f8;
 	} // namespace signatures
 } // namespace hazedumper

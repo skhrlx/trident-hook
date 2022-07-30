@@ -154,6 +154,7 @@
     <ClCompile Include="ext\minhook\trampoline.c" />
     <ClCompile Include="hacks\bhop.cpp" />
     <ClCompile Include="hacks\fovchanger.cpp" />
+    <ClCompile Include="hacks\hitmarker.cpp" />
     <ClCompile Include="hacks\noflash.cpp" />
     <ClCompile Include="sdk\entity.cpp" />
     <ClCompile Include="sdk\modules.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="ext\minhook\trampoline.h" />
     <ClInclude Include="hacks\bhop.hpp" />
     <ClInclude Include="hacks\fovchanger.hpp" />
+    <ClInclude Include="hacks\hitmarker.hpp" />
     <ClInclude Include="hacks\noflash.hpp" />
     <ClInclude Include="sdk\entity.hpp" />
     <ClInclude Include="sdk\player.hpp" />
