@@ -152,7 +152,13 @@
     <ClCompile Include="ext\minhook\hde\hde64.c" />
     <ClCompile Include="ext\minhook\hook.c" />
     <ClCompile Include="ext\minhook\trampoline.c" />
+    <ClCompile Include="hacks\bhop.cpp" />
+    <ClCompile Include="hacks\fovchanger.cpp" />
+    <ClCompile Include="hacks\noflash.cpp" />
+    <ClCompile Include="sdk\entity.cpp" />
+    <ClCompile Include="sdk\modules.cpp" />
     <ClCompile Include="sdk\modules.hpp" />
+    <ClCompile Include="sdk\player.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,7 +170,12 @@
     <ClInclude Include="ext\minhook\hde\table64.h" />
     <ClInclude Include="ext\minhook\MinHook.h" />
     <ClInclude Include="ext\minhook\trampoline.h" />
-    <ClInclude Include="sdk\WeaponData.hpp" />
+    <ClInclude Include="hacks\bhop.hpp" />
+    <ClInclude Include="hacks\fovchanger.hpp" />
+    <ClInclude Include="hacks\noflash.hpp" />
+    <ClInclude Include="sdk\entity.hpp" />
+    <ClInclude Include="sdk\player.hpp" />
+    <ClInclude Include="sdk\weapondata.hpp" />
     <ClInclude Include="sdk\data.hpp" />
     <ClInclude Include="sdk\offsets.hpp" />
     <ClInclude Include="src\gui.h" />

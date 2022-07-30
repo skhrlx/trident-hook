@@ -11,6 +11,10 @@
 #include "../sdk/data.hpp"
 #include "../ext/minhook/MinHook.h"
 #include "../sdk/modules.hpp"
+#include "../sdk/player.hpp"
+#include "../hacks/bhop.hpp"
+#include "../hacks/noflash.hpp"
+#include "../hacks/fovchanger.hpp"
 
 using namespace hazedumper::netvars;
 using namespace hazedumper::signatures;
@@ -152,26 +156,27 @@ void __forceinline PolyMorphic() {
 
 void MainLoop(const HMODULE instance) noexcept
 {
-	
+	modules::Initialize();
 	std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
 	while (!GetAsyncKeyState(VK_INSERT))
 	{
 		
-		if (Bunnhyhop)
+		if (Bunnhyhop && GetAsyncKeyState(0x20))
 		{
-			if (!GetAsyncKeyState(VK_SPACE))
-				continue;
-
-			const auto localPlayer = *reinterpret_cast<uintptr_t*>(modules::client + dwLocalPlayer);
-
-			const auto flags = *reinterpret_cast<int32_t*>(localPlayer + m_fFlags);
-
-			(flags & (1 << 0)) ?
-				*reinterpret_cast<uintptr_t*>(modules::client + dwForceJump) = 6 :
-				*reinterpret_cast<uintptr_t*>(modules::client + dwForceJump) = 4;
-
+			bhop::Run();
 		}
+
+		if (NoFlash)
+		{
+			noflash::Run();
+		}
+
+		if (FovChanger)
+		{
+			fovchanger::Run();
+		}
+
 	}
 	while (!GetAsyncKeyState(VK_DELETE))
 	{

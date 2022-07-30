@@ -1,7 +1,10 @@
-#include <Windows.h>
+#pragma once
+#include <cstdint>
 
 namespace modules
 {
-    const auto client = reinterpret_cast<uintptr_t>(GetModuleHandle("client.dll"));
-    const auto engine = reinterpret_cast<uintptr_t>(GetModuleHandle("engine.dll"));
+    extern uintptr_t client;
+    extern uintptr_t engine;
+
+    void Initialize();
 }
