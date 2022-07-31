@@ -30,6 +30,18 @@ std::vector<Entity*> Entity::GetAll()
     return allEntities;
 }
 
+void* Entity::GetClientNetworkable()
+{
+    return this + 0x8;
+}
+
+
+ClientClass* Entity::GetClientClass()
+{
+    return Utils::CallVirtualFunction<ClientClass*>(GetClientNetworkable(), 2);
+}
+
+
 bool Entity::IsDormant()
 {
     return ReadValue<bool>(m_bDormant);

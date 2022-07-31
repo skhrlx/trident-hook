@@ -156,6 +156,7 @@
     <ClCompile Include="hacks\fovchanger.cpp" />
     <ClCompile Include="hacks\hitmarker.cpp" />
     <ClCompile Include="hacks\noflash.cpp" />
+    <ClCompile Include="hacks\triggerbot.cpp" />
     <ClCompile Include="sdk\entity.cpp" />
     <ClCompile Include="sdk\modules.cpp" />
     <ClCompile Include="sdk\modules.hpp" />
@@ -175,8 +176,11 @@
     <ClInclude Include="hacks\fovchanger.hpp" />
     <ClInclude Include="hacks\hitmarker.hpp" />
     <ClInclude Include="hacks\noflash.hpp" />
+    <ClInclude Include="hacks\triggerbot.hpp" />
+    <ClInclude Include="sdk\clientclass.hpp" />
     <ClInclude Include="sdk\entity.hpp" />
     <ClInclude Include="sdk\player.hpp" />
+    <ClInclude Include="sdk\utils.hpp" />
     <ClInclude Include="sdk\weapondata.hpp" />
     <ClInclude Include="sdk\data.hpp" />
     <ClInclude Include="sdk\offsets.hpp" />

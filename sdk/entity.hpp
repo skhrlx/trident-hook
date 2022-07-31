@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include "clientclass.hpp"
+#include "utils.hpp"
 
 class Entity
 {
@@ -26,7 +28,9 @@ public:
         return reinterpret_cast<T>(this);
     }
 
+    ClientClass* GetClientClass();
     bool IsDormant();
+    void* GetClientNetworkable();
 };
 
 struct EntInfo

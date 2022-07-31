@@ -16,6 +16,7 @@
 #include "../hacks/noflash.hpp"
 #include "../hacks/fovchanger.hpp"
 #include "../hacks/hitmarker.hpp"
+#include "../hacks/triggerbot.hpp"
 
 using namespace hazedumper::netvars;
 using namespace hazedumper::signatures;
@@ -181,6 +182,11 @@ void MainLoop(const HMODULE instance) noexcept
 		if (HitMark)
 		{
 			hitmarker::Run();
+		}
+
+		if (TriggerBot && GetAsyncKeyState(0x05))
+		{
+			triggerbot::Run();
 		}
 
 	}

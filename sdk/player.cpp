@@ -34,3 +34,12 @@ uintptr_t Player::GetHitsOnServer()
     return hits;
 }
 
+int Player::GetCrosshairID()
+{
+    return ReadValue<int>(m_iCrosshairId);
+}
+
+int Player::GetTeam()
+{
+    return ReadValue<int>(m_iTeamNum);
+}
